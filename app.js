@@ -21,6 +21,15 @@ app.get("/api/users/:id", userHandlers.getUsersById);
 app.get("/api/movies", movieHandlers.getMovies);
 app.get("/api/movies/:id", movieHandlers.getMovieById);
 
+app.post("/api/movies",validateMovie, movieHandlers.postMovie);
+app.post("/api/users",validateUser, userHandlers.postUser);
+
+app.put("/api/movies/:id",validateMovie, movieHandlers.updateMovie);
+app.put("/api/users/:id",validateUser, userHandlers.updateUser);
+
+app.delete("/api/movies/:id", movieHandlers.deleteMovie);
+app.delete("/api/movies/:id", userHandlers.deleteUser);
+
 app.listen(port, (err) => {
   if (err) {
     console.error("Something bad happened");
@@ -30,9 +39,4 @@ app.listen(port, (err) => {
 });
 
 
-app.post("/api/movies",validateMovie, movieHandlers.postMovie);
-app.post("/api/users",validateUser, userHandlers.postUser);
-app.put("/api/movies/:id",validateMovie, movieHandlers.updateMovie);
-app.put("/api/users/:id",validateUser, userHandlers.updateUser);
-app.delete("/api/movies/:id", movieHandlers.deleteMovie);
-app.delete("/api/movies/:id", userHandlers.deleteUser);
+
