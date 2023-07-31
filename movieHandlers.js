@@ -1,4 +1,5 @@
 const database = require("./database");
+const { body, validationResult } = require('express-validator');
 
 const getMovies = (req, res) => {
   database
@@ -68,6 +69,7 @@ const updateMovie = (req, res) => {
       res.status(500).send("Error editing the movie");
     });
 };
+
 
 module.exports = {
   getMovies,

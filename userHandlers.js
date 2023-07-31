@@ -1,4 +1,5 @@
 const database = require("./database");
+const Joi = require("joi");
 
 const getUsers = (req, res) => {
   database
@@ -68,6 +69,8 @@ const postUser = (req, res) => {
         res.status(500).send("Error editing the user");
       });
   };
+
+  
 
 module.exports = {
   getUsers,
